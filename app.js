@@ -4,11 +4,11 @@ const Jimp = require('jimp');
 const app = express();
 
 // Convert YouTube thumbnail to PNG
-app.get('/convert-thumbnail', async (req, res) => {
-  const { videoId } = req.query;
+app.get('/convert-thumbnail/:videoId.png', async (req, res) => {
+  const { videoId } = req.params;
 
   if (!videoId) {
-    return res.status(400).send('Please provide a videoId as a query parameter.');
+    return res.status(400).send('Please provide a valid video ID.');
   }
 
   try {
